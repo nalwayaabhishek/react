@@ -16,10 +16,7 @@ var {
 var HelloWorld = React.createClass({
   render: function() {
     return (
-      <NavigatorIOS
-            style={{flex: 1}} initialRoute={{
-        title: 'My View Title'
-      }}/>
+      
 
       <View style={styles.container}>
         <Text style={styles.welcome}>
@@ -28,6 +25,20 @@ var HelloWorld = React.createClass({
       </View>
     );
   }
+});
+
+var mainView = React.createClass ({
+  render: function() {
+    return (
+      <NavigatorIOS
+            style={{flex: 1}} initialRoute={{
+        title: 'My View Title',
+        component: HelloWorld
+      }}
+
+      />
+    );
+  },
 });
 
 var styles = StyleSheet.create({
@@ -42,4 +53,4 @@ var styles = StyleSheet.create({
   }
 });
 
-AppRegistry.registerComponent('HouseShare', () => HelloWorld);
+AppRegistry.registerComponent('HouseShare', () => mainView);
